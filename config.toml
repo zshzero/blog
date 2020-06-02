@@ -1,0 +1,27 @@
+baseURL = "https://zshzero.github.io/blog/"
+languageCode = "en-us"
+title = "zshzero"
+theme = "hyde-hyde"
+publishDir = "docs"
+
+[params]
+    author = "Author"
+    title = "Title"
+    # description = "..."
+    dateformat = "Jan 2, 2006"
+
+    # sidebar, copyright & license
+    copyright = "zshzero"
+    since = 2020
+#    license = "CC BY-SA 4.0"
+#    licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+    showBuiltWith = true
+
+    # https://highlightjs.org
+    highlightjs = true
+    highlightjsstyle = "github"
+    
+[params.social]
+    github = "zshzero"
+    reddit = "zshzero"
+    twitter = "zshzero"
