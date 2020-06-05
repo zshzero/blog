@@ -44,7 +44,7 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-5. Set default file permissions (umask) in your ~/.bashrc or or ~/.zshrc file 
+5. Set default file permissions (umask) in your ~/.bashrc or ~/.zshrc file 
 ```bash 
 umask 022 
 ``` 
