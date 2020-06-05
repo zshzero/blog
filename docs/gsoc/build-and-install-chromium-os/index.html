@@ -22,13 +22,13 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Build and Install Chromium OS dev"/>
-<meta name="twitter:description" content="This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic.
+<meta name="twitter:description" content="This post is a quick start guide to get the Chromium OS source and build it.
 The official guide is at: Developer Guide
 These are the steps and commands I used while following the official guide:
 Prerequisite: You must have any up-to-date Linux distribution on a x86_64 64-bit system with sudo access to develop Chromium OS (They recommend and offer support to Ubuntu 16.04 - Xenial)  Install git revision control system, the curl download helper, and lvm tools  sudo apt-get install git-core gitk git-gui curl lvm2 \  thin-provisioning-tools python-pkg-resources python-virtualenv \  python-oauth2client xz-utils python3."/>
 
 <meta property="og:title" content="Build and Install Chromium OS dev" />
-<meta property="og:description" content="This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic.
+<meta property="og:description" content="This post is a quick start guide to get the Chromium OS source and build it.
 The official guide is at: Developer Guide
 These are the steps and commands I used while following the official guide:
 Prerequisite: You must have any up-to-date Linux distribution on a x86_64 64-bit system with sudo access to develop Chromium OS (They recommend and offer support to Ubuntu 16.04 - Xenial)  Install git revision control system, the curl download helper, and lvm tools  sudo apt-get install git-core gitk git-gui curl lvm2 \  thin-provisioning-tools python-pkg-resources python-virtualenv \  python-oauth2client xz-utils python3." />
@@ -190,15 +190,15 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   
   <div class="post">
-    <p>This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic.</p>
+    <p>This post is a quick start guide to get the Chromium OS source and build it.</p>
 <p>The official guide is at: <a href="https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md">Developer Guide</a></p>
 <p>These are the steps and commands I used while following the official guide:</p>
 <h5 id="prerequisite-you-must-have-any-up-to-date-linux-distribution-on-a-x86_64-64-bit-system-with-sudo-access-to-develop-chromium-os-they-recommend-and-offer-support-to-ubuntu-1604---xenial">Prerequisite: You must have any up-to-date Linux distribution on a x86_64 64-bit system with sudo access to develop Chromium OS (They recommend and offer support to Ubuntu 16.04 - Xenial)</h5>
 <ol>
 <li>Install git revision control system, the curl download helper, and lvm tools</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install git-core gitk git-gui curl lvm2 <span style="color:#ae81ff">\ </span>
-     thin-provisioning-tools python-pkg-resources python-virtualenv <span style="color:#ae81ff">\
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install git-core gitk git-gui curl lvm2 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>     thin-provisioning-tools python-pkg-resources python-virtualenv <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>     python-oauth2client xz-utils python3.6
 </code></pre></div><ol start="2">
 <li>Clone depot_tools and add them to your PATH</li>
@@ -234,7 +234,7 @@ git config --global user.name <span style="color:#e6db74">&#34;Your Name&#34;</s
 <ol start="7">
 <li>Get the public source code</li>
 </ol>
-<p>You will have a much nicer time if you also have a fast multi-processor machine with lots of memory and good Internet connection</p>
+<p>You will have a much nicer time if you also have a fast multi-processor machine with lots of memory and good internet connection</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/chromiumos
 repo init -u https://chromium.googlesource.com/chromiumos/manifest.git --repo-url https://chromium.googlesource.com/external/repo.git
 repo sync
@@ -283,7 +283,9 @@ repo sync
 <li>Boot with your USB disk and install Chromium OS on your hard disk</li>
 </ol>
 <h5 id="note-installing-chromium-os-onto-your-hard-disk-will-wipe-your-hard-disk-clean">NOTE: Installing Chromium OS onto your hard disk will Wipe Your Hard Disk Clean.</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/sbin/chromeos-install --dst /dev/sdxY <span style="color:#75715e"># replace with your Hard disk parition</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Switch to terminal via Ctrl+Alt+F2 (F2 might appear as -&gt;)</span>
+<span style="color:#75715e"># Enter the username and password</span>
+/usr/sbin/chromeos-install --dst /dev/sdxY <span style="color:#75715e"># replace with your Hard disk parition</span>
 </code></pre></div><p>This guide is just the creamly layer on what is possible – it is best to read the Official Developer guide</p>
 
   </div>

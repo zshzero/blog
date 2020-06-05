@@ -4,7 +4,7 @@ date: 2020-06-05T06:47:12+05:30
 draft: false
 ---
 
-This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic. 
+This post is a quick start guide to get the Chromium OS source and build it.
 
 The official guide is at: [Developer Guide](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md)
 
@@ -14,7 +14,7 @@ These are the steps and commands I used while following the official guide:
 
 1. Install git revision control system, the curl download helper, and lvm tools
 ```bash
-sudo apt-get install git-core gitk git-gui curl lvm2 \ 
+sudo apt-get install git-core gitk git-gui curl lvm2 \
      thin-provisioning-tools python-pkg-resources python-virtualenv \
      python-oauth2client xz-utils python3.6
 ```
@@ -57,7 +57,7 @@ If you are not willing to create it in your home directory, refer : [Link](https
 
 7. Get the public source code
 
-You will have a much nicer time if you also have a fast multi-processor machine with lots of memory and good Internet connection
+You will have a much nicer time if you also have a fast multi-processor machine with lots of memory and good internet connection
 ```bash
 cd ~/chromiumos
 repo init -u https://chromium.googlesource.com/chromiumos/manifest.git --repo-url https://chromium.googlesource.com/external/repo.git
@@ -116,6 +116,8 @@ You can adapt the previously built image so that it is usable by kvm
 
 ##### NOTE: Installing Chromium OS onto your hard disk will Wipe Your Hard Disk Clean.
 ```bash
+# Switch to terminal via Ctrl+Alt+F2 (F2 might appear as ->)
+# Enter the username and password
 /usr/sbin/chromeos-install --dst /dev/sdxY # replace with your Hard disk parition
 ```
 

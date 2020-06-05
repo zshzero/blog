@@ -17,7 +17,7 @@
       <pubDate>Fri, 05 Jun 2020 06:47:12 +0530</pubDate>
       
       <guid>https://zshzero.github.io/blog/gsoc/build-and-install-chromium-os/</guid>
-      <description>This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic.
+      <description>This post is a quick start guide to get the Chromium OS source and build it.
 The official guide is at: Developer Guide
 These are the steps and commands I used while following the official guide:
 Prerequisite: You must have any up-to-date Linux distribution on a x86_64 64-bit system with sudo access to develop Chromium OS (They recommend and offer support to Ubuntu 16.04 - Xenial)  Install git revision control system, the curl download helper, and lvm tools  sudo apt-get install git-core gitk git-gui curl lvm2 \  thin-provisioning-tools python-pkg-resources python-virtualenv \  python-oauth2client xz-utils python3.</description>
