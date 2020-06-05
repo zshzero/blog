@@ -6,9 +6,43 @@
     <description>Recent content on zshzero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jun 2020 06:47:12 +0530</lastBuildDate>
     
 	<atom:link href="https://zshzero.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Build and Install Chromium OS dev</title>
+      <link>https://zshzero.github.io/blog/gsoc/build-and-install-chromium-os/</link>
+      <pubDate>Fri, 05 Jun 2020 06:47:12 +0530</pubDate>
+      
+      <guid>https://zshzero.github.io/blog/gsoc/build-and-install-chromium-os/</guid>
+      <description>This post is a quick start guide to get the Chromium OS source code, build it and try it out for BOARD=arm-generic.
+The official guide is at: Developer Guide
+These are the steps and commands I used while following the official guide:
+Prerequisite: You must have any up-to-date Linux distribution on a x86_64 64-bit system with sudo access to develop Chromium OS (They recommend and offer support to Ubuntu 16.04 - Xenial)  Install git revision control system, the curl download helper, and lvm tools  sudo apt-get install git-core gitk git-gui curl lvm2 \  thin-provisioning-tools python-pkg-resources python-virtualenv \  python-oauth2client xz-utils python3.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://zshzero.github.io/blog/aboutme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zshzero.github.io/blog/aboutme/</guid>
+      <description>I am an active member of the Open Source Community called OSL which works for the cause of promoting and contributing to Free and Open Source Software.
+Having used GNU/Linux for quite some time now and recently I moved to Gentoo. Since then I have been closely following the Gentoo project and participating actively. Also, I have a few contributions to the community.
+As a hobby project, I have been working on FridayOS which was done referring to intermezzOS.</description>
+    </item>
+    
+    <item>
+      <title>What is my Project all about?</title>
+      <link>https://zshzero.github.io/blog/project/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zshzero.github.io/blog/project/</guid>
+      <description>Chromium OS, an open-source project that aims to provide a fast, simple, and more secure computing experience for people who spend most of their time on the web and Chromebook is a special-purpose device for a group of users who only care about the web.
+But Portage, the package manager which was originally developed for Gentoo Linux and other tools are used only for cross-compiling and building the filesystem image which makes it a feature-limited OS.</description>
+    </item>
     
   </channel>
 </rss>

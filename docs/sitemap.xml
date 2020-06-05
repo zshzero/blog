@@ -3,6 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://zshzero.github.io/blog/gsoc/build-and-install-chromium-os/</loc>
+    <lastmod>2020-06-05T06:47:12+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zshzero.github.io/blog/gsoc/</loc>
+    <lastmod>2020-06-05T06:47:12+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zshzero.github.io/blog/</loc>
+    <lastmod>2020-06-05T06:47:12+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zshzero.github.io/blog/aboutme/</loc>
+  </url>
+  
+  <url>
     <loc>https://zshzero.github.io/blog/categories/</loc>
   </url>
   
@@ -11,7 +30,7 @@
   </url>
   
   <url>
-    <loc>https://zshzero.github.io/blog/</loc>
+    <loc>https://zshzero.github.io/blog/project/</loc>
   </url>
   
 </urlset>

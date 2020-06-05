@@ -4,6 +4,13 @@ title = "zshzero"
 theme = "hyde-hyde"
 publishDir = "docs"
 
+[Menus]
+  main = [
+      {Name = "About Me", URL = "/aboutme"},
+      {Name = "My Project", URL = "/project"},
+      {Name = "Weekly Updates", URL = "/gsoc"}
+  ]
+
 [params]
     author = "Author"
     title = "Title"
