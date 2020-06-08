@@ -4,7 +4,7 @@ date: 2020-06-07T12:00:09+05:30
 draft: false 
 ---
 
-This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+This week, I built toolchain for crOS (An acronmyn which I will be referring to ChromiumOS this entire series)
 
 My first attempt was to create binary package for toolchain packages using crossdev
 
@@ -42,7 +42,7 @@ quickpkg cross-x86-cros-linux-gnu/glibc
 quickpkg cross-x86-cros-linux-gnu/linux-headers
 ```
 
-- Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs 
+- Created binary packages are pointed by the PKGDIR variable which defaults to /var/cache/binpkgs 
 
 - On crOS, unpack the packages using [quickunpkg](https://github.com/zoobab/quickunpkg):
 ```bash

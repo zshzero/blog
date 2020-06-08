@@ -17,9 +17,9 @@
       <pubDate>Sun, 07 Jun 2020 12:00:09 +0530</pubDate>
       
       <guid>https://zshzero.github.io/blog/gsoc/week1/</guid>
-      <description>This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+      <description>This week, I built toolchain for crOS (An acronmyn which I will be referring to ChromiumOS this entire series)
 My first attempt was to create binary package for toolchain packages using crossdev
- Create an overlay specifically for crossdev&amp;rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &amp;#39;crossdev&amp;#39; &amp;gt; /var/db/repos/crossdev/profiles/repo_name echo &amp;#39;masters = gentoo&amp;#39; &amp;gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs</description>
+ Create an overlay specifically for crossdev&amp;rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &amp;#39;crossdev&amp;#39; &amp;gt; /var/db/repos/crossdev/profiles/repo_name echo &amp;#39;masters = gentoo&amp;#39; &amp;gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.</description>
     </item>
     
     <item>

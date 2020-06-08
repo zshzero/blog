@@ -22,14 +22,14 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GSoC Week 1"/>
-<meta name="twitter:description" content="This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+<meta name="twitter:description" content="This week, I built toolchain for crOS (An acronmyn which I will be referring to ChromiumOS this entire series)
 My first attempt was to create binary package for toolchain packages using crossdev
- Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs"/>
+ Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos."/>
 
 <meta property="og:title" content="GSoC Week 1" />
-<meta property="og:description" content="This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+<meta property="og:description" content="This week, I built toolchain for crOS (An acronmyn which I will be referring to ChromiumOS this entire series)
 My first attempt was to create binary package for toolchain packages using crossdev
- Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs" />
+ Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zshzero.github.io/blog/gsoc/week1/" />
 <meta property="article:published_time" content="2020-06-07T12:00:09+05:30" />
@@ -188,7 +188,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   
   <div class="post">
-    <p>This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)</p>
+    <p>This week, I built toolchain for crOS (An acronmyn which I will be referring to ChromiumOS this entire series)</p>
 <p>My first attempt was to create binary package for toolchain packages using crossdev</p>
 <ul>
 <li>Create an overlay specifically for crossdev&rsquo;s use</li>
@@ -222,7 +222,7 @@ quickpkg cross-x86-cros-linux-gnu/glibc
 quickpkg cross-x86-cros-linux-gnu/linux-headers
 </code></pre></div><ul>
 <li>
-<p>Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs</p>
+<p>Created binary packages are pointed by the PKGDIR variable which defaults to /var/cache/binpkgs</p>
 </li>
 <li>
 <p>On crOS, unpack the packages using <a href="https://github.com/zoobab/quickunpkg">quickunpkg</a>:</p>
