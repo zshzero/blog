@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://zshzero.github.io/blog/" />
-<meta property="og:updated_time" content="2020-06-05T06:47:12+05:30" /><meta property="og:site_name" content="Title" />
+<meta property="og:updated_time" content="2020-06-07T12:00:09+05:30" /><meta property="og:site_name" content="Title" />
 
 
     
@@ -158,6 +158,29 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post-list">
     
     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/blog/gsoc/week1/" >GSoC Week 1</a>
+        </span>
+        <span class="item__date">
+          Jun 7, 2020
+        </span>
+        <span >
+        
+        This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+My first attempt was to create binary package for toolchain packages using crossdev
+ Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/blog/gsoc/week1/">➦</a>
+        
+        </div>
+        
+     
       
         
       

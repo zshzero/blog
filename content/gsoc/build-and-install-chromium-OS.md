@@ -122,4 +122,4 @@ You can adapt the previously built image so that it is usable by kvm
 ```
 
 
-This guide is just the creamly layer on what is possible – it is best to read the Official Developer guide
+This guide is just the creamy layer on what is possible – it is best to read the Official Developer guide

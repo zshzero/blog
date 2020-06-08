@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.69.0" />
+
+    
+    
+    
+
+<title>GSoC Week 1 • zshzero</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSoC Week 1"/>
+<meta name="twitter:description" content="This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+My first attempt was to create binary package for toolchain packages using crossdev
+ Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs"/>
+
+<meta property="og:title" content="GSoC Week 1" />
+<meta property="og:description" content="This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)
+My first attempt was to create binary package for toolchain packages using crossdev
+ Create an overlay specifically for crossdev&rsquo;s use  mkdir -p /var/db/repos/crossdev mkdir -p /var/db/repos/crossdev/{profiles,metadata} echo &#39;crossdev&#39; &gt; /var/db/repos/crossdev/profiles/repo_name echo &#39;masters = gentoo&#39; &gt; /var/db/repos/crossdev/metadata/layout.conf chown -R portage:portage /var/db/repos/crossdev  Then instruct portage and crossdev to use this overlay:  #FILE /etc/portage/repos.conf/crossdev.conf [crossdev] location = /var/db/repos/crossdev priority = 10 masters = gentoo auto-sync = no  Install crossdev and build toolchain for crOS:  emerge --ask crossdev crossdev --stable -t x86_64-cros-linux-gnu  After building toolchain, use quickpkg to create binary packages of them:  quickpkg cross-x86-cros-linux-gnu/binutils quickpkg cross-x86-cros-linux-gnu/gcc quickpkg cross-x86-cros-linux-gnu/gdb quickpkg cross-x86-cros-linux-gnu/glibc quickpkg cross-x86-cros-linux-gnu/linux-headers   Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zshzero.github.io/blog/gsoc/week1/" />
+<meta property="article:published_time" content="2020-06-07T12:00:09+05:30" />
+<meta property="article:modified_time" content="2020-06-07T12:00:09+05:30" /><meta property="og:site_name" content="Title" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/scss/hyde-hyde.3081c4981fb69a2783dd36ecfdd0e6ba7a158d4cbfdd290ebce8f78ba0469fc6.css" integrity="sha256-MIHEmB&#43;2mieD3Tbs/dDmunoVjUy/3SkOvOj3i6BGn8Y=">
+
+
+<link rel="stylesheet" href="/blog/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://zshzero.github.io/blog/">zshzero</a>
+      </span>
+      
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">zshzero</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/blog/aboutme">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/blog/project">
+						<span>My Project</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/blog/gsoc">
+						<span>Weekly Updates</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/zshzero" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/zshzero" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://www.reddit.com/user/zshzero" rel="me"><i class="fab fa-reddit-alien fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 zshzero
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>GSoC Week 1</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jun 7, 2020
+    
+    
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 2 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>This week, I built toolchain for crOS (will be referring to ChromiumOS this entire series)</p>
+<p>My first attempt was to create binary package for toolchain packages using crossdev</p>
+<ul>
+<li>Create an overlay specifically for crossdev&rsquo;s use</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /var/db/repos/crossdev
+mkdir -p /var/db/repos/crossdev/<span style="color:#f92672">{</span>profiles,metadata<span style="color:#f92672">}</span>
+echo <span style="color:#e6db74">&#39;crossdev&#39;</span> &gt; /var/db/repos/crossdev/profiles/repo_name 
+echo <span style="color:#e6db74">&#39;masters = gentoo&#39;</span> &gt; /var/db/repos/crossdev/metadata/layout.conf
+chown -R portage:portage /var/db/repos/crossdev
+</code></pre></div><ul>
+<li>Then instruct portage and crossdev to use this overlay:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#FILE /etc/portage/repos.conf/crossdev.conf</span>
+<span style="color:#f92672">[</span>crossdev<span style="color:#f92672">]</span>
+location <span style="color:#f92672">=</span> /var/db/repos/crossdev
+priority <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+masters <span style="color:#f92672">=</span> gentoo
+auto-sync <span style="color:#f92672">=</span> no
+</code></pre></div><ul>
+<li>Install crossdev and build toolchain for crOS:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">emerge --ask crossdev
+crossdev --stable -t x86_64-cros-linux-gnu
+</code></pre></div><ul>
+<li>After building toolchain, use quickpkg to create binary packages of them:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">quickpkg cross-x86-cros-linux-gnu/binutils
+quickpkg cross-x86-cros-linux-gnu/gcc
+quickpkg cross-x86-cros-linux-gnu/gdb
+quickpkg cross-x86-cros-linux-gnu/glibc
+quickpkg cross-x86-cros-linux-gnu/linux-headers
+</code></pre></div><ul>
+<li>
+<p>Created binary packages are pointed to by the PKGDIR variable which defaults to /var/cache/binpkgs</p>
+</li>
+<li>
+<p>On crOS, unpack the packages using <a href="https://github.com/zoobab/quickunpkg">quickunpkg</a>:</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./quickunpkg binutils-2.33.1-r1.tbz2
+</code></pre></div><p>But emerge command gave an error saying that it was missing make and patch. Even adding make package would not have helped as it also requires make</p>
+<p>So, I built the the toolchain using <a href="https://crosstool-ng.github.io/">crosstool-ng</a></p>
+<p>crosstool-NG targets at building toolchains, and only toolchains. They are ready to use and quite easy to install and setup.</p>
+<p>They can be general purpose and pre-configured for the majority targets</p>
+<ul>
+<li>Install ct-ng by referring the <a href="https://crosstool-ng.github.io/docs/">docs</a> or by:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">emerge -a sys-devel/ct-ng
+</code></pre></div><ul>
+<li>Choose one out of several sample configurations shipped by ct-ng:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ct-ng list-samples
+ct-ng show-x86-unknown-linux-gnu
+</code></pre></div><ul>
+<li>Load the sample configuration as a base and fine-tune using ct-ng menuconfig</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ct-ng x86-unknown-linux-gnu
+</code></pre></div><ul>
+<li>ct-ng is configured with a configurator presenting a menu-structured set of options like Gentoo&rsquo;s kernel configurator</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ct-ng menuconfig
+</code></pre></div><p>My configuration for the toolchain : <a href="https://gist.github.com/zshzero/eafcbdb283c4629881ad03e3d70fd6bf">Github gist</a></p>
+<ul>
+<li>Build the toolchain as user:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ct-ng build
+</code></pre></div><p>My toolchain build : <a href="https://gitlab.com/zshzero/cross-x86_64-cros-linux-gnu">Gitlab</a></p>
+<ul>
+<li>After building it, Add the toolchain&rsquo;s bin directory to PATH</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span><span style="color:#e6db74">:/your/toolchain/path/bin&#34;</span>
+</code></pre></div><h3 id="summary">Summary</h3>
+<p>I tried building toolchain using gentoo&rsquo;s crossdev but failed due to the above reason. So, I built  it using crosstool-ng as it was ready to use and quite easy to install and setup.</p>
+<p>Next, I will be setting it up on crOS which will now help portage compile and build packages. Also, need to add necessary libraries that are missing in toolchain and configure portage to use it.</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/blog/gsoc/build-and-install-chromium-os/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Build and Install Chromium OS dev</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+
+
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>
