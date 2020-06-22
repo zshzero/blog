@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://zshzero.github.io/blog/" />
-<meta property="og:updated_time" content="2020-06-14T09:52:56+05:30" /><meta property="og:site_name" content="Title" />
+<meta property="og:updated_time" content="2020-06-20T10:53:56+05:30" /><meta property="og:site_name" content="Title" />
 
 
     
@@ -158,6 +158,31 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post-list">
     
     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/blog/gsoc/week3/" >GSoC Week 3</a>
+        </span>
+        <span class="item__date">
+          Jun 20, 2020
+        </span>
+        <span >
+        
+        As gcc needed glibc version 2.29, I started emerging glibc
+It said invalid: REDEPEND: USE flag 'kernel_linux' referenced in conditional 'kernel_linux?' is not in use
+So, I added kernel_linux under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+Similarly as above, Missing USE flag 'amd64' So, added amd64 use flag under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+IUSE_IMPLICIT=&#34;abi_x86_64 prefix prefix-guest kernel_linux amd64&#34; Then, it complained about saying Your /etc/nsswitch.conf is out of date. So, I had to update it.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/blog/gsoc/week3/">➦</a>
+        
+        </div>
+        
+     
       
         
       

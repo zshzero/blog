@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.69.0" />
+
+    
+    
+    
+
+<title>GSoC Week 3 • zshzero</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSoC Week 3"/>
+<meta name="twitter:description" content="As gcc needed glibc version 2.29, I started emerging glibc
+It said invalid: REDEPEND: USE flag &#39;kernel_linux&#39; referenced in conditional &#39;kernel_linux?&#39; is not in use
+So, I added kernel_linux under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+Similarly as above, Missing USE flag &#39;amd64&#39; So, added amd64 use flag under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+IUSE_IMPLICIT=&#34;abi_x86_64 prefix prefix-guest kernel_linux amd64&#34; Then, it complained about saying Your /etc/nsswitch.conf is out of date. So, I had to update it."/>
+
+<meta property="og:title" content="GSoC Week 3" />
+<meta property="og:description" content="As gcc needed glibc version 2.29, I started emerging glibc
+It said invalid: REDEPEND: USE flag &#39;kernel_linux&#39; referenced in conditional &#39;kernel_linux?&#39; is not in use
+So, I added kernel_linux under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+Similarly as above, Missing USE flag &#39;amd64&#39; So, added amd64 use flag under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults
+IUSE_IMPLICIT=&#34;abi_x86_64 prefix prefix-guest kernel_linux amd64&#34; Then, it complained about saying Your /etc/nsswitch.conf is out of date. So, I had to update it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zshzero.github.io/blog/gsoc/week3/" />
+<meta property="article:published_time" content="2020-06-20T10:53:56+05:30" />
+<meta property="article:modified_time" content="2020-06-20T10:53:56+05:30" /><meta property="og:site_name" content="Title" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/scss/hyde-hyde.3081c4981fb69a2783dd36ecfdd0e6ba7a158d4cbfdd290ebce8f78ba0469fc6.css" integrity="sha256-MIHEmB&#43;2mieD3Tbs/dDmunoVjUy/3SkOvOj3i6BGn8Y=">
+
+
+<link rel="stylesheet" href="/blog/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://zshzero.github.io/blog/">zshzero</a>
+      </span>
+      
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">zshzero</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/blog/aboutme">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/blog/project">
+						<span>My Project</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/blog/gsoc">
+						<span>Weekly Updates</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/zshzero" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/zshzero" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://www.reddit.com/user/zshzero" rel="me"><i class="fab fa-reddit-alien fa-lg" aria-hidden="true"></i></a>
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 zshzero
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>GSoC Week 3</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jun 20, 2020
+    
+    
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 5 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>As gcc needed glibc version 2.29, I started emerging glibc</p>
+<p>It said <code>invalid: REDEPEND: USE flag 'kernel_linux' referenced in conditional 'kernel_linux?' is not in use</code></p>
+<p>So, I added kernel_linux under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults</p>
+<p>Similarly as above, <code>Missing USE flag 'amd64'</code> So, added amd64 use flag under IUSE_IMPLICIT variable to /etc/portage/make.profile/make.defaults</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">IUSE_IMPLICIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abi_x86_64 prefix prefix-guest kernel_linux amd64&#34;</span>
+</code></pre></div><p>Then, it complained about saying <code>Your /etc/nsswitch.conf is out of date</code>. So, I had to update it. <a href="http://ix.io/2oaK">My nsswitch.conf</a></p>
+<p>As glibc needed sys-devel/bison, I commented it from make.provided and emerged</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo emerge -a sys-devel/bison
+</code></pre></div><p>Also Installed linux-headers as glibc&rsquo;s dependencies</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo emerge -a sys-kernel/linux-headers
+</code></pre></div><p>I had to add sys-devel/gcc to package.provided (as it was dependencies for glibc). Continued with emerging, <code>ERROR : in function iconv_open': (.text+0x55a): undefined reference to __stack_chk_guard'</code></p>
+<p>Referring to one of stackoverflow post, I added -fno-stack-protector to CFLAGS in  make.conf and used -ssp during emerging.</p>
+<p>Then, <code>Segmentation fault (core dumped) LC_ALL=C ./ld-*.so --library-path . ${x} &gt; /dev/null</code></p>
+<p>When i asked about this in the IRC channel, they said that I managed to build a glibc that doesn&rsquo;t work and it failed in sanity check. Also, they commented on <code>__stack_chk_guard</code> error saying that it was dangerous to add -fno-stack-protector flag and it also tends to breaks things</p>
+<p>I thought, instead of adding use flags manually(caused a lot of problems), I would change the profile to default/linux/amd64/17.1/desktop and add gcc, glibc to packages.provided which overcame the problem of circular dependencies.</p>
+<p>But, again falls on world update due to circular dependencies of perl package. So, I decided to build binaries for perl.</p>
+<p>I read about <a href="https://gitweb.gentoo.org/proj/crossdev.git/tree/README">crossdev</a> again and started building toolchain for crOS.</p>
+<ul>
+<li>This would build the glibc greater than v2.29 and perl binaries also</li>
+</ul>
+<p>In order to build toolchain for x86_64-cros-linux-gnu, I needed a <a href="https://wiki.gentoo.org/wiki/Custom_repository#Crossdev">custom repository</a> which i had setup previously and also updated my system. I built the toolchain for crOS and tested by building busy box package with static keyword.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo crossdev -t x86_64-cros-linux-gnu
+sudo USE<span style="color:#f92672">=</span>static x86_64-cros-linux-gnu-emerge -av1 busybox
+</code></pre></div><p>Then, I built gcc-9.3 for crOS (Was not to cross compile gcc-10.1.0-r1)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo x86_64-cros-linux-gnu-emerge -av1 <span style="color:#f92672">=</span>sys-devel/gcc-9.3.0
+</code></pre></div><p>Before building perl binaries, I wanted make sure of toolchain. So, I zipped the directory /usr/x86_64-cros-linux-gnu and moved that to crOS.</p>
+<p>I symlinked the gcc&rsquo;s and binutils&rsquo;s binaries to toolchain&rsquo;s usr/bin and added to PATH variable. Then, I added  toolchain&rsquo;s usr/lib to LD_LIBRARY_PATH variable. Also, symlinked header files from toolchain&rsquo;s  sys-include to /usr/include. Finally, &ldquo;Hello world&rdquo; program successfully executed on crOS</p>
+<p>Now, I tried to emerge dev-lang/perl but had to add ncurse to toolchain&rsquo;s package.use</p>
+<p>But got stuck with error</p>
+<pre><code class="language-error" data-lang="error">The following REQUIRED_USE flag constraints are unsatisfied:
+  python_single_target_python2_7 python_single_target_python3_8 python_single_target_python3_8
+The above constraints are a subset of the following complete expression:
+    exactly-one-of ( python_single_target_python2_7 python_single_target_python3_7 python_single_target_python3_8) 
+</code></pre><p>While installing python-3.8.3, I had to add PYTHON_TARGETS PYTHON_TARGETS=&quot;python3_8&rdquo; to toolchain&rsquo;s make.conf and add PYTHON_TARGETS to toolchain&rsquo;s make.profile/make.default line USE_EXPAND</p>
+<p>One of the python dependencies, python-exec failed to install. So, I Added to toolchains&rsquo;s profile/package.provided (removed after the python installation completed and emerged again)</p>
+<p>Also, I had to emerge a unstable package, setup_tools. So, I added it to system&rsquo;s system&rsquo;s package.use with ~amd64 use flag</p>
+<p>Then, Error <code>Couldn't satisfy ebuild dev-python/certifi</code>. I added it to package.provided as it was firefox&rsquo;s CA Bundle. Python successfully emerged</p>
+<p>After all this, perl package failed to emerge by giving an error that it couldn&rsquo;t cross-compile perl. I asked on IRC Channel and they asked me to find the right version of perl to emerge which is compatible  perl-cross</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">x86_64-cros-linux-gnu-emerge -av1 <span style="color:#f92672">=</span>dev-lang/perl-5.30.1
+</code></pre></div><p>Finally, I had build all the packages that was stuck in circular dependencies</p>
+<pre><code>sys-devel/gcc-9.3.0
+sys-libs/glibc-2.30-r8
+dev-lang/perl-5.30.3
+sys-libs/db-5.3.28-r2
+sys-devel/autoconf-2.69-r4
+</code></pre><p>I zipped the directory /usr/x86_64-cros-linux-gnu using, copied to crOS and unzipped it</p>
+<pre><code>tar -czf x86_64-cros-linux-gnu.tar /usr/x86_64-cros-linux-gnu # On gentoo system
+sudo tar -xzf x86_64-cros-linux-gnu.tar # On crOS root directory
+</code></pre><p>But it failed as it had less space on its root partition i.e 2GB</p>
+<p>While I was googling around on how to extend the partition, I found a script called <a href="https://github.com/ethanmad/chromeos-resize">chromeos-resize</a></p>
+<p>I downloaded the script and executed it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://raw.githubusercontent.com/ethanmad/chromeos-resize/master/cros-resize.sh
+sudo chmod <span style="color:#ae81ff">755</span> cros-resize.sh
+sudo ./cros-resize.sh
+</code></pre></div><p>Script failed as it needed developer mode to be enabled. As i don&rsquo;t own a chromebook, I couldn&rsquo;t. So commented those lines and re-ran it again.</p>
+<p>I followed as it instructed me. After it was done, it rebooted and repaired itself. I was supposed to run it again with the same values.</p>
+<p>It successfully completed but the when i executed <code>df -h</code>, it was of same size. I rechecked with <code>fdisk -l</code> and it extended to rootfs C which was minimal-size partition for future third kernel.</p>
+<p>I went through the script and learnt how to extend a crOS partition</p>
+<ul>
+<li>As crOS repaired itself, it wipes out all the data on the device</li>
+</ul>
+<p>According to phyical partition of crOS (<a href="https://www.chromium.org/chromium-os/chromiumos-design-docs/disk-format/layout.png?attredirects=0">Layout</a>), I took 6gb from state partition and added to rootfs A. It is easier as they are beside each other</p>
+<p>Live boot a OS, list the partition and extend it</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cgpt show /dev/sda
+cgpt add -i <span style="color:#ae81ff">1</span> -b &lt;startblock&gt; -s &lt;size&gt; /dev/sda <span style="color:#75715e"># Moved the starting point by 6gb and reduced that 6gb from size also</span>
+cgpt add -i <span style="color:#ae81ff">3</span> -b &lt;startblock&gt; -s &lt;size&gt; /dev/sda <span style="color:#75715e"># kept starting point same but added + 6gb for size</span>
+</code></pre></div><p>Then, check consistency and resize the file system</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">e2fsck -f /dev/sda3 
+resize2fs /dev/sda3
+</code></pre></div><p>Reboot and repeat the above 2 steps again</p>
+<p>Finally, I was able to extend the root partition to 8GB</p>
+<h3 id="summary">Summary</h3>
+<p>As gcc needed glibc version 2.29, I started emerging it with its dependencies and also by adding required use flags. But it built a glibc that doesn&rsquo;t work and failed sanity checks. So, I changed the profile to default/linux/amd64/17.1/desktop and added gcc, glibc to packages.provided which overcame the problem of circular dependencies.</p>
+<p>Then, It needed perl package, So I had to cross compile it using crossdev. At last, I zipped the toolchain directory, copied to crOS and unzipped it. But it failed as it had less space on its root partition. I referred a script called chromeos-resize.sh and learnt things that was required. It successfully extended the root partition.</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/blog/gsoc/week2/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">GSoC Week 2</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" integrity="sha384-b3ua1l97aVGAPEIe48b4TC60WUQbQaGi2jqAWM90y0OZXZeyaTCWtBTKtjW2GXG1" crossorigin="anonymous"></script>
+
+
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>
