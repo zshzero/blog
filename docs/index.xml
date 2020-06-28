@@ -6,10 +6,20 @@
     <description>Recent content on zshzero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2020 10:53:56 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 20:26:02 +0530</lastBuildDate>
     
 	<atom:link href="https://zshzero.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSoC Week 4</title>
+      <link>https://zshzero.github.io/blog/gsoc/week4/</link>
+      <pubDate>Sat, 27 Jun 2020 20:26:02 +0530</pubDate>
+      
+      <guid>https://zshzero.github.io/blog/gsoc/week4/</guid>
+      <description>After expanding the root partition, I moved the toolchain built using crossdev to crOS. I extracted it in /usr/local/x86_64-cros-linux-gnu, force symlinked binutils and gcc&amp;rsquo;s binaries to toolchain&amp;rsquo;s /usr/bin, added PATH and LD_LIBRARY_PATH bash variable to .bashrc.I also symlinked toolchain&amp;rsquo;s sys-include to /usr/include
+sudo tar -xzf cross-x86_64-cros-linux-gnu.tar -C /usr/local/x86_64-cros-linux-gnu/ sudo ln -sf /usr/local/x86_64-cros-linux-gnu/usr/x86_64-cros-linux-gnu/gcc-bin/9.3.0/* /usr/local/x86_64-cros-linux-gnu/usr/bin/ sudo ln -sf /usr/local/x86_64-cros-linux-gnu/usr/x86_64-cros-linux-gnu/binutils-bin/2.33.1/* /usr/local/x86_64-cros-linux-gnu/usr/bin/ sudo export PATH=/usr/local/x86_64-cros-linux-gnu/usr/bin:$PATH sudo export LD_LIBRARY_PATH=/usr/local/x86_64-cros-linux-gnu/usr/lib:$LD_LIBRARY_PATH sudo ln -s /usr/local/x86_64-cros-linux-gnu/sys-include/* /usr/include/  If you get inconsistency in STATE_PARTITION or Error: wrong fs type, bad option, bad superblock on /dev/sda1, missing codepage or helper program, or other error, Do follow the previous steps again after reboot for the check  When i tried to execute a hello world program, It gave me a error Error: ld: cannot find /usr/lib64/libc_nonshared.</description>
+    </item>
     
     <item>
       <title>GSoC Week 3</title>
